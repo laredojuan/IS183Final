@@ -3,7 +3,7 @@ import { Headers, Http } from '@angular/http';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class userService {
+export class UserService {
 
     private apiUrl: string;
 
@@ -14,33 +14,41 @@ export class userService {
     }
 
     async getUsers(): Promise<Array<Object>> {
-        const resp = await this.http.get(`${this.apiUrl}/user`).toPromise();
-        const users = resp.json();
-        return users || [];
+        const resp = await this.http.get(`${this.apiUrl}/user`)
+            .toPromise();
+        return resp.json();
     }
 
-    async getUserById(userID): Promise<Object> {
-        const resp = await this.http.get(`${this.apiUrl}/user/id/${userID}`).toPromise();
-        const user = resp.json();
-        return user || [];
+    getUserById(userId): Promise<Object> {
+        return this.http.get(`${this.apiUrl}/user/id/${userId}`)
+            .toPromise()
+            .then((resp) => {
+                return resp.json();
+            });
     }
 
-    async addUser(user): Promise<Object> {
-        const resp = await this.http.post(`${this.apiUrl}/user`, user).toPromise();
-        const newUser = resp.json();
-        return newUser || null;
+    addUser(user): Promise<Object> {
+        return this.http.post(`${this.apiUrl}/user`, user)
+            .toPromise()
+            .then((resp) => {
+                return resp.json();
+            });
     }
 
-    async deleteUser(userID): Promise<Object> {
-        const resp = await this.http.delete(`${this.apiUrl}/user/id/${userID}`).toPromise();
-        const status = resp.json();
-        return status;
+    deleteUser(id): Promise<Object> {
+        return this.http.delete(`${this.apiUrl}/user/id/${id}`)
+            .toPromise()
+            .then((resp) => {
+                return resp.json();
+            });
     }
 
-    async updateUser(userID, user): Promise<Object> {
-        const resp = await this.http.put(`${this.apiUrl}/user/id/${userID}`, user).toPromise();
-        const updatedUser = resp.json();
-        return updatedUser;
+    updateUser(id, user): Promise<Object> {
+        return this.http.put(`${this.apiUrl}/user/id/${id}`, user)
+            .toPromise()
+            .then((resp) => {
+                return resp.json();
+            });
     }
 
 }

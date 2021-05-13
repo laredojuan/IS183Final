@@ -30,8 +30,8 @@ import { BeveragesComponent } from './beverages/beverages.component';
 import { BeverageCreateComponent } from './beverages/beverage-create/beverage-create.component';
 
 // users components
-import { userService } from './users/user.service';
-import { userComponent } from './users/user/user.component';
+import { UserService } from './users/user.service';
+import { UserComponent } from './users/user/user.component';
 import { UsersComponent } from './users/users.component';
 import { UserCreateComponent } from './users/user-create/user-create.component';
 // ...
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
   { path: 'beverage-create', component: BeverageCreateComponent },
   // users
   { path: 'users', component: UsersComponent },
-  { path: 'user/:id', component: userComponent },
+  { path: 'user/:id', component: UserComponent },
   { path: 'user-create', component: UserCreateComponent },
   // ...
 ];
@@ -75,7 +75,7 @@ const appRoutes: Routes = [
     // users
     UsersComponent,
     UserCreateComponent,
-    userComponent
+    UserComponent
     // ...
   ],
   imports: [
@@ -89,7 +89,7 @@ const appRoutes: Routes = [
   providers: [
     BookService,
     BeverageService,
-    userService
+    UserService
     // ...
   ],
   bootstrap: [AppComponent]

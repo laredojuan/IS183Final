@@ -4,7 +4,7 @@
       <mat-toolbar-row>
         <span class="copyright">Create a User</span>
         <div class="button-row">
-          <button [routerLink]="['/users']" mat-raised-button color="accent" class="pull-right">
+          <button [routerLink]="['/user']" mat-raised-button color="accent" class="pull-right">
             Back to User List
             <mat-icon class="example-icon">arrow_back</mat-icon>
           </button>
@@ -14,15 +14,15 @@
 
     <mat-card-content>
       <div class="container">
-        <img *ngIf="usr.image_url" mat-card-image [src]="user.image_url" alt="user">
+        <img *ngIf="user.image_url" mat-card-image [src]="user.image_url" alt="user">
         <mat-form-field class="input">
-          <input [(ngModel)]="user.username" matInput placeholder="Title" required>
+          <input [(ngModel)]="user.username" matInput placeholder="username" required>
         </mat-form-field>
 
         <mat-form-field class="input">
-          <input [(ngModel)]="user.email" matInput placeholder="Genre" required>
+          <input [(ngModel)]="user.email" matInput placeholder="Email" required>
         </mat-form-field>
-
+        
         <mat-form-field class="input">
           <input [(ngModel)]="user.image_url" matInput placeholder="Cover Image URL" required>
         </mat-form-field>
